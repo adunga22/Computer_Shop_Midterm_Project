@@ -119,3 +119,11 @@ form{
     color: #8b8b8b;
     padding: 0 15px;
 }
+
+
+form#emailSpn,
+form#passwordSpn{
+    color: red;
+    font-size: 15px;
+    margin-bottom: 40px;
+}

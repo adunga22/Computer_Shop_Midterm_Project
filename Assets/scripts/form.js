@@ -1,27 +1,30 @@
-const forms = document.querySelector(".forms"),
-pwShowHide = document.querySelectorAll(".eye-icon"),
-links = document.querySelectorAll(".link");
+function validateAndSubmit(event){
+  event.preventDefault();
 
-pwShowHide.forEach(eyeIcon => {
-eyeIcon.addEventListener("click", () => {
-  let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-  
-  pwFields.forEach(password => {
-      if(password.type === "password"){
-          password.type = "text";
-          eyeIcon.classList.replace("bx-hide", "bx-show");
-          return;
-      }
-      password.type = "password";
-      eyeIcon.classList.replace("bx-show", "bx-hide");
-  })
-  
-})
-})      
+  var isValidated = true;
 
-links.forEach(link => {
-link.addEventListener("click", e => {
- e.preventDefault(); //preventing form submit
- forms.classList.toggle("show-signup");
+console.log(isValidated);
+
+  $("#emailSpn").html("");
+  $("#passwordSpn").html("");
+
+  const email = $("#email").val();
+  if(email.endsWith("@gmail.com")){
+  }else{
+    $("#emailSpn").html("Please enter a valid email!!!");
+    isValidated = false;
+  }
+
+
+  if(isValidated == false){
+    console.log(isValidated)
+    return
+  }
+
+  window.location = "orders.html";
+}
+
+$(document).ready(function(){
+   $(".loginBtn").click(validateAndSubmit);
 })
-})
+
